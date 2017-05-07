@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Product.create(name: Faker::Name.name, origin: Faker::Company.bs)
+Product.create(name: Faker::DragonBall.character, origin: )
