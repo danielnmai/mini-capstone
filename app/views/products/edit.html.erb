@@ -4,16 +4,20 @@
  </div>
  
  <div>
- <label for="origin">Country of Origin:</label> <input type="text" name="origin">
+ <label for="origin">Country of Origin:</label> <input type="text" name="origin" value="<%=@product.origin%>">
 
 <div>
- <label for="price">Country of Price:</label> <input type="float" name="price">
+ <label for="price">Country of Price:</label> <input type="float" name="price" value="<%=@product.price%>">
 </div>
 
 <div>
- <label for="description">Description:</label> <input type="text" name="description">
+ <label for="description">Description:</label> <input type="text" name="description" value="<%=@product.description%>">
 </div>
 
-<input type="submit">
+<div>
+ <label for="image">Image Link:</label> <input type="text" name="image" value="<%=@product.image%>">
+</div>
 
-  <% end %>
+
+<input type="submit" value="Update"> 
+<% end %>
