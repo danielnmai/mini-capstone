@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
     discounted_item = params[:discount]
     search_term = params[:search_term]
 
+
     if sort
       @products = Product.all.order(sort => sort_order)
     end
@@ -25,7 +26,8 @@ class ProductsController < ApplicationController
     end
 
     if search_term
-      @products = Product.where("name LIKE ?", "%#{search_term}%")      
+
+      @products = Product.where("name LIKE ?", "%#{search_term.capitalize}%")      
     end
       render "index.html"
 
@@ -70,4 +72,6 @@ class ProductsController < ApplicationController
 
     redirect_to "/products"
   end
+
+  
 end

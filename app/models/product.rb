@@ -1,4 +1,10 @@
 class Product < ApplicationRecord
+
+    belongs_to :supplier
+    has_many :images
+
+  
+
   def sale_message
    price < 2.00 ?  "Discount Item!!" : "Everyday Value!!" 
     
@@ -11,4 +17,6 @@ class Product < ApplicationRecord
   def total
     price + tax
   end
+
+
 end

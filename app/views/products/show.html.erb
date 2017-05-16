@@ -1,10 +1,12 @@
 
   <h1> Product Information</h1>
   <h2> <%= @product.sale_message %></h2>
+
   <h3> Name: <%=@product.name %></h3>
   <h3>Country of Origin: <%=@product.origin %></h3>
   <h3> Price: $<%=@product.price %></h3>
   <h3>Description: <%=@product.description %> </h3>
+    <h3>Supplier: <%=@product.supplier.name %> </h3>
   <h3> Tax: $<%=@product.tax %> </h3>
   <% if @product.price < 2.00 %>
   <h3 class="discounted">Total price: $<%=@product.total %> </h3>
@@ -12,9 +14,13 @@
    <h3>Total price: $<%=@product.total %> </h3>
   <% end %>
 
-  <h3><img src="<%=@product.image %>" alt="<%=@product.name %>" ></h3>
 
-  <%= button_to "Edit", {:action => "edit", :id => @product.id }, :method => :get %>
+  <% @product.images.each do |image|%>
+   <h3><img src="<%=image.url %>" alt=" product_image" class = "well" %></h3>
+  <% end %>
+ 
+
+
 
   <%= form_tag "/products/#{@product.id}", method: :delete do %>
    <button class="btn btn-primary">Delete </button>
