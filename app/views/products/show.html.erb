@@ -16,10 +16,10 @@
 
 
   <% @product.images.each do |image|%>
-   <h3><img src="<%=image.url %>" alt=" product_image" class = "well" %></h3>
+   <h3><img src="<%=image.url %>" alt=" product_image" class = "body_image" %> </h3>
   <% end %>
  
-
+  <%= link_to "Add Image", controller: "images", action: "new", id: @product.id %>
 
 
   <%= form_tag "/products/#{@product.id}", method: :delete do %>

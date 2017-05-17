@@ -42,8 +42,9 @@ class ProductsController < ApplicationController
     @origin = params[:origin]
     @price = params[:price]
     @description = params[:description]
+    @supplier_id = params[:supplier]["supplier_id"]
 
-    product = Product.create(name: @name, origin: @origin, price: @price, description: @description)
+    product = Product.create(name: @name, origin: @origin, price: @price, description: @description, supplier_id: @supplier_id)
 
     flash[:info] = "Product successfully created."
     redirect_to "/products/#{product.id}"    

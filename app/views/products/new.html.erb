@@ -7,12 +7,14 @@
  <label for="origin">Country of Origin:</label> <input type="text" name="origin">
 
 <div>
- <label for="price">Country of Price:</label> <input type="float" name="price">
+ <label for="price">Price:</label> <input type="float" name="price">
 </div>
 
 <div>
  <label for="description">Description:</label> <input type="text" name="description">
 </div>
+
+<div>  <label for="supplier">Supplier:</label>  <%= collection_select :supplier, :supplier_id, Supplier.all, :id, :name %></div>
 
 <div>
  <label for="image">Image Link:</label> <input type="text" name="image">
