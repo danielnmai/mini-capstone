@@ -1,0 +1,16 @@
+<h2>Your shopping cart:</h2>
+<% @carted_products.each do |carted_product| %> 
+
+<h2> <%= carted_product.product.name %> </h2>
+<h2> Quantity: <%= carted_product.quantity %></h2>
+
+<%= form_tag "/carted_products/#{carted_product.id}", method: :delete do %>
+ <button class="btn btn-primary">Delete </button>
+ <% end %>
+
+<% end %>
+
+<%= form_tag "/orders/#{@order.id}", method: :patch do %>
+<button class="btn btn-primary">Buy Now</button>
+<% end %>
+

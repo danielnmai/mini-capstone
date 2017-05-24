@@ -17,11 +17,13 @@
             <h3>Country of Origin: <%=product.origin %></h3>
             <h3> Price: $<%=product.price %></h3>
             <h3>Description: <%=product.description %> </h3>
-            <h3><img src="<%=product.images.first.url %>" alt="<%=product.name %>"></h3>   
+            <h3><img src="<%=product.images.first.url %>" alt="<%=product.name %>"></h3>  
+            <% if current_user &&current_user.admin %> 
             <h2> 
                <%= button_to "Delete Product", {:action => "destroy", :id => product.id }, :method => :delete, data: {confirm: "Are you sure?"} %>
                <%= link_to "Edit Product", action: "edit", id: product.id %>
             </h2>
+            <% end %>
           </div>
         </div>
         <% end %>

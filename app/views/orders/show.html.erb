@@ -1,0 +1,12 @@
+<h1> Your order is complete!</h1>
+<% @order.carted_products.each do |product| %> 
+
+<h2> <%= product.product.name %> </h2>
+<h2> Quantity: <%= product.quantity %></h2>
+<% end %>
+
+<h2>Order Id: <%= @order.id %></h2>
+<h2>Order Subtotal: <%= @order.subtotal %></h2>
+<h2>Order Tax: <%= @order.tax %></h2>
+<h2>Order Total: <%= @order.total %></h2>
+

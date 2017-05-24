@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+
+   before_action :authenticate_admin!, except: [:index, :show, :search]
+
   def show
     if params[:id] == "random"
       @product = Product.all.sample
@@ -27,7 +30,11 @@ class ProductsController < ApplicationController
 
     if search_term
 
-      @products = Product.where("name LIKE ?", "%#{search_term.capitalize}%")      
+      @products = Product.where("name LIKE ?", "%#{search_term.capitalize}%") 
+    end
+
+    if params[:category]
+      @products = Category.find_by(title: params[:category]).products
     end
       render "index.html"
 

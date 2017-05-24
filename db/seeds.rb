@@ -6,5 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Product.create(name: Faker::Name.name, origin: Faker::Company.bs)
-Product.create(name: Faker::DragonBall.character, origin: )
+# Product.create(name: Faker::Name.name, origin: Faker::Company.bs)
+# Product.create(name: Faker::DragonBall.character, origin: )
+
+# CartedProduct.create(
+
+#   product_id: 2,
+#   order_id: 2,
+#   quantity: 5
+#   )
