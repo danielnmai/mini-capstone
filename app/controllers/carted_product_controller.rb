@@ -3,7 +3,7 @@ class CartedProductController < ApplicationController
   def index
     @order = Order.find_by(user_id: current_user.id, completed: false)
 
-    if @order
+    if @order.carted_products.length > 0
       @carted_products = @order.carted_products
       render 'index'
     else
