@@ -3,6 +3,12 @@ User.create!([
   {name: "Luna", email: "luna@gmail.com", password_digest: "$2a$10$QzZUSrJXKH2nfkYrDIj8R.zjW809li7rI3062SYB4MrtpIlbNbx2a", admin: false}
 ])
 
+Supplier.create!([
+  {name: "Apple", email: "supply@apple.com", phone: "800-295-2145"},
+  {name: "Logitech", email: "supply@logitech.com", phone: "855-252-1235"},
+  {name: "Ford", email: "sale@ford.com", phone: "899-992-2342"}
+])
+
 Order.create!([
   {user_id: 1, subtotal: 68.95, tax: 6.2055, total: 75.1555, completed: true},
   {user_id: 1, subtotal: 68.95, tax: 6.2055, total: 75.1555, completed: true},
@@ -103,9 +109,5 @@ Image.create!([
   {url: "https://images-na.ssl-images-amazon.com/images/I/71zQbEbNlNL._SY355_.jpg", product_id: 23}
 ])
 
-Supplier.create!([
-  {name: "Apple", email: "supply@apple.com", phone: "800-295-2145"},
-  {name: "Logitech", email: "supply@logitech.com", phone: "855-252-1235"},
-  {name: "Ford", email: "sale@ford.com", phone: "899-992-2342"}
-])
+
 
