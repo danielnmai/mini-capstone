@@ -1,3 +1,14 @@
+<div> 
+  <% if @product && @product.errors.any? %>
+    <h3><%= @product.errors.count %> error(s) prohibited this product from being saved </h3>
+    <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li> <strong> <%= message %> </strong> </li>
+     <% end %>
+    </ul>
+  <% end %>
+</div>
+
 <%=form_tag "/products", method: :post do %>
 <div> 
  <label for="name">Name:</label> <input type="text" name="name">

@@ -10,10 +10,17 @@ class Product < ApplicationRecord
     has_many :category_products
     has_many :categories, through: :category_products
 
-  
+    validates :name, presence: true
+    validates :name, uniqueness: true
+
+    validates :price, numericality: true
+    validates :price, presence: true
+    # validates :price, format: { with: /^[0-9]+(\.[0-9]{1,2})?$/ }
+    validates :description, length: { maximum: 500 }
+    validates :description, presence: true
 
   def sale_message
-   price < 2.00 ?  "Discount Item!!" : "Everyday Value!!" 
+   price < 2.00 ? 'Discount Item!!' : 'Everyday Value!!'
     
   end
 

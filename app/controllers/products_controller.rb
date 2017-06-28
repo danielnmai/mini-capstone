@@ -51,10 +51,14 @@ class ProductsController < ApplicationController
     @description = params[:description]
     @supplier_id = params[:supplier]["supplier_id"]
 
-    product = Product.create(name: @name, origin: @origin, price: @price, description: @description, supplier_id: @supplier_id)
+    @product = Product.new(name: @name, origin: @origin, price: @price, description: @description, supplier_id: @supplier_id)
 
-    flash[:info] = "Product successfully created."
-    redirect_to "/products/#{product.id}"    
+    if @product.save
+      flash[:info] = "Product successfully created."
+      redirect_to "/products/#{product.id}"
+    else
+      render :new
+    end
   end
 
   def edit
@@ -63,13 +67,21 @@ class ProductsController < ApplicationController
   end
 
   def update
-    product = Product.find(params[:id])
+    @product = Product.find(params[:id])
 
-    product.update(name: params[:name], origin: params[:origin], price: params[:price], description: params[:description], image: params[:image])
-
-    flash[:success] = "Product successfully updated."
-
-    redirect_to "/products/#{product.id}"    
+    @product.assign_attributes(
+      name: params[:name],
+      origin: params[:origin],
+      price: params[:price],
+      description: params[:description],
+      image: params[:image]
+    )
+    if @product.save
+      flash[:success] = 'Product successfully updated.'
+      redirect_to "/products/#{@product.id}"
+    else
+      render :edit
+    end
   end
 
   def destroy
