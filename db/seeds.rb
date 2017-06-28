@@ -1,3 +1,8 @@
+User.create!([
+  {name: "Daniel", email: "daniel@gmail.com", password_digest: "$2a$10$yIOUd49jEzuqvyuCOGtxmezD6I2ObsQnDbBGxs/SWjTAphd0uOtlu", admin: true},
+  {name: "Luna", email: "luna@gmail.com", password_digest: "$2a$10$QzZUSrJXKH2nfkYrDIj8R.zjW809li7rI3062SYB4MrtpIlbNbx2a", admin: false}
+])
+
 Order.create!([
   {user_id: 1, subtotal: 68.95, tax: 6.2055, total: 75.1555, completed: true},
   {user_id: 1, subtotal: 68.95, tax: 6.2055, total: 75.1555, completed: true},
@@ -45,10 +50,7 @@ Product.create!([
   {name: "EcoBoost Ford Mustang", origin: "USA", category: nil, price: "39990.0", description: "Nothing to say about this beast. ", image: "http://www.ford.com/cmslibs/content/dam/vdm_ford/live/en_us/ford/nameplate/mustang/2017/collections/highlights/3-2/mst17_highlight_lg_design.jpg/_jcr_content/renditions/cq5dam.web.1280.1280.jpeg", stock_status: true, supplier_id: 3}
 ])
 
-User.create!([
-  {name: "Daniel", email: "daniel@gmail.com", password_digest: "$2a$10$yIOUd49jEzuqvyuCOGtxmezD6I2ObsQnDbBGxs/SWjTAphd0uOtlu", admin: true},
-  {name: "Luna", email: "luna@gmail.com", password_digest: "$2a$10$QzZUSrJXKH2nfkYrDIj8R.zjW809li7rI3062SYB4MrtpIlbNbx2a", admin: false}
-])
+
 
 CartedProduct.create!([
   {product_id: 3, order_id: 26, quantity: 4},
